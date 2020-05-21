@@ -1,0 +1,36 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+struct Particle
+{
+    float3 pos;
+    float3 vel;
+    float4 color;
+    float size;
+};
+
+RWStructuredBuffer<Particle> particleBuffer;
+//float3 cubePosition;
+//float deltaTime;
+//float3 Offset;
+
+[numthreads(256, 1, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    //float3 distance = normalize(Offset - particleBuffer[id.x].pos);
+    //particleBuffer[id.x].vel = (particleBuffer[id.x].vel + distance) * 0.5f;
+    //particleBuffer[id.x].pos += particleBuffer[id.x].vel * deltaTime;
+}
+
+//RWStructuredBuffer<Particle> particleBuffer;
+//float2 mousePosition;
+//float deltaTime;
+
+//[numthreads(256, 1, 1)]
+//void CSMain(uint3 id : SV_DispatchThreadID)
+//{
+//    float3 distance = normalize(float3(mousePosition, 0) - particleBuffer[id.x].pos);
+//    particleBuffer[id.x].vel = (particleBuffer[id.x].vel + distance) * 0.999f;
+//    particleBuffer[id.x].pos += particleBuffer[id.x].vel * deltaTime;
+
+//}
